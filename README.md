@@ -12,7 +12,10 @@ Install using [pathogen] or your favorite Vim package manager.
 Usage
 ----
     <leader>sftpu
+    Upload the file
+    
     <leader>sftpd
+    Download the file
 
 Description
 ----
