@@ -74,8 +74,8 @@ function! SftpDownload()
     let tc = SftpGetCfg()
     let cmd = printf('sh ~/.vim/bundle/vim-sftp-sync/sftp.sh %s %s %s %s "get %s %s"',tc['host'], tc['port'],tc['user'],tc['pass'], tc['remote_path'], tc['local_path'])
     "echo cmd
-    "echo 'local_path:' . tc['local_path']
-    "echo 'remote_path:' . tc['remote_path']
+    echo 'local_path:' . tc['local_path']
+    echo 'remote_path:' . tc['remote_path']
 
 
     if tc['confirm_downloads']==1
