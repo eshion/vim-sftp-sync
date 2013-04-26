@@ -19,7 +19,7 @@ Description
 
 Please write config following like.
 
-    let g:vim_scp_configs = {
+    let g:vim_sftp_configs = {
     \      'sample_server_1' : {
     \    	'upload_on_save'   : 1,
     \    	'download_on_open' : 0,
