@@ -7,7 +7,7 @@ Automatic sync SFTP for buffers in vim
 Installation
 ----
 
-Install using [pathogen] or your favorite Vim package manager.
+Install using [vundle] [pathogen] or your favorite Vim package manager.
 
 Usage
 ----
@@ -68,4 +68,5 @@ Ctrl+u
 Ctrl+d  
     `nnoremap <C-U> <ESC>:call SftpDownload()<CR>`
     
+[vundle]:https://github.com/gmarik/vundle/
 [pathogen]:https://github.com/tpope/vim-pathogen/
