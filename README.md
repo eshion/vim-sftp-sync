@@ -7,7 +7,7 @@ Automatic sync SFTP for buffers in vim
 Installation
 ----
 
-Install using [vundle] [pathogen] or your favorite Vim package manager.
+Install using [vundle],[pathogen] or your favorite Vim package manager.
 
 Usage
 ----
