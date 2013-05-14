@@ -1,5 +1,4 @@
 #!/bin/bash
-
 HOST=$1
 PORT=$2
 USER=$3
@@ -13,7 +12,13 @@ expect \"*assword:\"
 send ${PASS}\r
 expect \"sftp>\"
 send \"${CMD}\r\"
-expect \"sftp>\"
-send \"exit\r\"
+expect {
+    \"*No such file*\" {
+        send \"mkdir \"
+    }
+    \"*sftp>\" {
+        send \"exit\r\"
+    }
+}
 interact
 "
