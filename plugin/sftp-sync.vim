@@ -1,6 +1,6 @@
 " Header.
 " --------------------
-" scp-sync.vim
+" sftp-sync.vim
 " Maintainer:   https://github.com/eshion/vim-sftp-sync
 " Version:      1.0
 
