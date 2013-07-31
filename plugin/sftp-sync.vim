@@ -6,8 +6,8 @@
 
 " Command.
 " --------------------
-map <silent>sftpu <ESC>:call SftpUpload()<CR>
-map <silent>sftpd <ESC>:call SftpDownload()<CR>
+nmap <leader>su :call SftpUpload()<CR>
+nmap <leader>sd :call SftpDownload()<CR>
 autocmd BufWritePost * :call SftpAutoUpload()
 autocmd BufReadPre * :call SftpAutoDownload()
 

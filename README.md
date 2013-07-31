@@ -11,10 +11,10 @@ Install using [vundle],[pathogen] or your favorite Vim package manager.
 
 Usage
 ----
-    <leader>sftpu
+    <leader>su
     Upload the file
     
-    <leader>sftpd
+    <leader>sd
     Download the file
 
 Description
