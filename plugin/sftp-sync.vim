@@ -68,7 +68,6 @@ function! SftpUpload()
 \   } -re \"Connected\" {
 \       send \"%s\r\";
 \   } -re \"No such file or directory\" {
-\       set timeout -1;
 \       send \"mkdir %s\r\";
 \       send \"%s\r\";
 \   } -re \"100%\" {
