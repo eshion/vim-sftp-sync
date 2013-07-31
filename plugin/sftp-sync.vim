@@ -19,6 +19,7 @@ function! SftpGetCfg()
 
     let configs = g:vim_sftp_configs
     let self_path = expand("%:p")
+    let self_fold = expand("%:p:h")
 
     for key in keys(configs)
         let config = configs[key]
@@ -27,6 +28,7 @@ function! SftpGetCfg()
             let target_config        = config
             let target_project       = key
             let target_relative_path = self_path[strlen(local_base_path):]
+            let target_relative_fold = self_fold[strlen(local_base_path):]
         endif
     endfor
 
@@ -36,6 +38,7 @@ function! SftpGetCfg()
 
     let local_full_path  = target_config['local_base_path']  . target_relative_path
     let remote_full_path = target_config['remote_base_path'] . target_relative_path
+    let remote_full_fold = target_config['remote_base_path'] . target_relative_fold
 
     if self_path != local_full_path
         echo "self_path is not local_full_path. expect is same."
@@ -43,20 +46,42 @@ function! SftpGetCfg()
 
     let target_config['local_path'] = local_full_path
     let target_config['remote_path'] = remote_full_path
+    let target_config['remote_fold'] = remote_full_fold
 
     return target_config
 endfunction
 
 function! SftpUpload()
-    let tc = SftpGetCfg()
-    if empty(tc)
+    let conf = SftpGetCfg()
+    if empty(conf)
         return
     endif    
-    let cmd = printf('sh ~/.vim/bundle/vim-sftp-sync/sftp.sh %s %s %s %s "put %s %s"',tc['host'], tc['port'],tc['user'],tc['pass'], tc['local_path'], tc['remote_path'])
-    "echo cmd
-    "echo 'local_path:' . tc['local_path']
-    "echo 'remote_path:' . tc['remote_path']
-    if tc['confirm_uploads']==1
+
+    let action = printf('put %s %s', conf['local_path'], conf['remote_path'])
+    let cmd = printf('
+\expect -c "
+\set timeout 5; 
+\spawn sftp -P %s %s@%s; 
+\while {1} {
+\   expect -re \"assword:\" {
+\       send %s\r;
+\   } -re \"Connected\" {
+\       send \"%s\r\";
+\   } -re \"No such file or directory\" {
+\       set timeout -1;
+\       send \"mkdir %s\r\";
+\       send \"%s\r\";
+\   } -re \"100%\" {
+\       send \"exit\r\";
+\   } timeout {
+\       exit;
+\   } eof {
+\       exit;
+\   }
+\}
+\ "
+\', conf['port'], conf['user'], conf['host'], conf['pass'], action, conf['remote_fold'], action)
+    if conf['confirm_uploads']==1
         let choice = confirm("Can I upload this file?", "&Yes\n&No", 2)
         if choice != 1
             echo "Cenceled."
@@ -71,14 +96,33 @@ endfunction
 
 function! SftpDownload()
 
-    let tc = SftpGetCfg()
-    let cmd = printf('sh ~/.vim/bundle/vim-sftp-sync/sftp.sh %s %s %s %s "get %s %s"',tc['host'], tc['port'],tc['user'],tc['pass'], tc['remote_path'], tc['local_path'])
-    "echo cmd
-    echo 'local_path:' . tc['local_path']
-    echo 'remote_path:' . tc['remote_path']
+    let conf = SftpGetCfg()
+    "let cmd = printf('sh ~/.vim/bundle/vim-sftp-sync/sftp.sh %s %s %s %s "get %s %s"',tc['host'], tc['port'],tc['user'],tc['pass'], tc['remote_path'], tc['local_path'])
+ 
+    let action = printf('get %s %s', conf['remote_path'], conf['local_path'])
+    let cmd = printf('
+\expect -c "
+\set timeout 5; 
+\spawn sftp -P %s %s@%s; 
+\while {1} {
+\   expect -re \"assword:\" {
+\       send %s\r;
+\   } -re \"Connected\" {
+\       send \"%s\r\";
+\   } -re \"100%\" {
+\       send \"exit\r\";
+\   } -re \"not found\" {
+\       send \"exit\r\";
+\   } timeout {
+\       exit;
+\   } eof {
+\       exit;
+\   }
+\}
+\ "
+\', conf['port'], conf['user'], conf['host'], conf['pass'], action)
 
-
-    if tc['confirm_downloads']==1
+    if conf['confirm_downloads']==1
         let choice = confirm("Can I download this file?", "&Yes\n&No", 2)
         if choice != 1
             echo "Cenceled."
