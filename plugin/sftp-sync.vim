@@ -97,8 +97,6 @@ endfunction
 function! SftpDownload()
 
     let conf = SftpGetCfg()
-    "let cmd = printf('sh ~/.vim/bundle/vim-sftp-sync/sftp.sh %s %s %s %s "get %s %s"',tc['host'], tc['port'],tc['user'],tc['pass'], tc['remote_path'], tc['local_path'])
- 
     let action = printf('get %s %s', conf['remote_path'], conf['local_path'])
     let cmd = printf('
 \expect -c "
