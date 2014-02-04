@@ -71,7 +71,7 @@ user:
 pass:
 
 sftp_command:
-default: "sftp"
+    default: "sftp"
 
 login_prompt_regexp:
 default: "Login:\\|Name.*:"
