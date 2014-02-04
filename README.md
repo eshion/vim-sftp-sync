@@ -61,20 +61,25 @@ All parameters
 ----
 
 local_base_path:
-
+ > 
+ 
 remote_base_path:
-
+ > 
+ 
 host:
-
+ > 
+ 
 user:
-
+ > 
+ 
 pass:
-
+ > 
+ 
 sftp_command:   
-    default: "sftp"
+ > default: "sftp"
 
 login_prompt_regexp: 
-    default: "Login:\\|Name.*:"
+ > default: "Login:\\|Name.*:"
 
 password_prompt_regexp: 
     default: "Password:"
