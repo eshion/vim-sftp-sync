@@ -76,39 +76,39 @@ pass:
  > login password
  
 sftp_command:   
- > sync tool command
+ > sync tool command  
  > default: "sftp"
 
 login_prompt_regexp: 
- > login name prompt regexp
+ > login name prompt regexp  
  > default: "Login:\\|Name.*:"
 
 password_prompt_regexp: 
- > login password prompt regexp
+ > login password prompt regexp  
  > default: "Password:"
 
 sftp_prompt_regexp: 
- > logged prompt regexp
+ > logged prompt regexp  
  > default: "^s*ftp>"
 
 complete_prompt_regexp:
- > complete sync prompt regexp
+ > complete sync prompt regexp  
  > default: "complete"
 
 upload_command:
- > upload command
+ > upload command  
  > default: "put"
 
 download_command:
- > download command
+ > download command  
  > default: "get"
 
 exit_command:
- > exit command
+ > exit command  
  > default: "exit"
 
 timeout_connection:
- > timeout second(s)
+ > timeout second(s)  
  > default: 5
 
 upload_on_save:
