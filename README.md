@@ -74,37 +74,37 @@ sftp_command:
     default: "sftp"
 
 login_prompt_regexp:
-default: "Login:\\|Name.*:"
+    default: "Login:\\|Name.*:"
 
 password_prompt_regexp:
-default: "Password:"
+    default: "Password:"
 
 sftp_prompt_regexp:
-default: "^s*ftp>"
+    default: "^s*ftp>"
 
 complete_prompt_regexp:
-default: "complete"
+    default: "complete"
 
 update_command:
-default: "put"
+    default: "put"
 
 download_command:
-default: "get"
+    default: "get"
 
 exit_command:
-default: "exit"
+    default: "exit"
 
 timeout_connection:
-default: 5
+    default: 5
 
 upload_on_save:
-default: 0
+    default: 0
 
 confirm_uploads:
-default: 1
+    default: 1
 
 confirm_downloads:
-default: 1
+    default: 1
 
 
 Alias
