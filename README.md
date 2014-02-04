@@ -73,13 +73,13 @@ pass:
 sftp_command:   
     default: "sftp"
 
-login_prompt_regexp:
+login_prompt_regexp: 
     default: "Login:\\|Name.*:"
 
-password_prompt_regexp:
+password_prompt_regexp: 
     default: "Password:"
 
-sftp_prompt_regexp:
+sftp_prompt_regexp: 
     default: "^s*ftp>"
 
 complete_prompt_regexp:
