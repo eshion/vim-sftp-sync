@@ -61,55 +61,64 @@ All parameters
 ----
 
 local_base_path:
- > 
+ > local base path
  
 remote_base_path:
- > 
+ > remote base path
  
 host:
- > 
+ > remote ip or host name
  
 user:
- > 
+ > login user
  
 pass:
- > 
+ > login password
  
 sftp_command:   
+ > sync tool command
  > default: "sftp"
 
 login_prompt_regexp: 
+ > login name prompt regexp
  > default: "Login:\\|Name.*:"
 
 password_prompt_regexp: 
-    default: "Password:"
+ > login password prompt regexp
+ > default: "Password:"
 
 sftp_prompt_regexp: 
-    default: "^s*ftp>"
+ > logged prompt regexp
+ > default: "^s*ftp>"
 
 complete_prompt_regexp:
-    default: "complete"
+ > complete sync prompt regexp
+ > default: "complete"
 
-update_command:
-    default: "put"
+upload_command:
+ > upload command
+ > default: "put"
 
 download_command:
-    default: "get"
+ > download command
+ > default: "get"
 
 exit_command:
-    default: "exit"
+ > exit command
+ > default: "exit"
 
 timeout_connection:
-    default: 5
+ > timeout second(s)
+ > default: 5
 
 upload_on_save:
-    default: 0
+ > default: 0
 
 confirm_uploads:
-    default: 1
+ > default: 1
 
 confirm_downloads:
-    default: 1
+ > default: 1
 
 
 Alias
