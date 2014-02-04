@@ -1,13 +1,13 @@
 vim-sftp-sync
 ============
 
-Automatic sync SFTP for buffers in vim
+Automatic sync SFTP,FTP,... for buffers in vim
 
 
 Installation
 ----
 
-Install using [vundle],[pathogen] or your favorite Vim package manager.
+Install using [bundle],[vundle],[pathogen] or your favorite Vim package manager.
 
 Usage
 ----
@@ -30,10 +30,10 @@ Please write config following like.
     \    	'confirm_uploads'  : 0,
     \		'local_base_path'  : '/Users/name/sample/',
     \		'remote_base_path' : '/var/www/sample/',
+    \		'sftp_command' : 'sftp',
     \		'user' : 'username',
     \		'pass' : 'password',
-    \		'host' : 'ip addess or domain name',
-    \		'port' : '22'
+    \		'host' : 'ip addess or domain name'
     \	},
     \	'sample_server_2' : {
     \       'upload_on_save'   : 1,
@@ -42,20 +42,70 @@ Please write config following like.
     \    	'confirm_uploads'  : 0,
     \		'local_base_path'  : '/Users/development',
     \		'remote_base_path' : '/var/www/development/trunk/',
+    \		'sftp_command' : 'ftp',
     \		'user' : 'username',
     \		'pass' : 'password',
-    \		'host' : 'ip addess or domain name',
-    \		'port' : '22'
+    \		'host' : 'ip addess or domain name'
     \	}
     \}
 
 sample1
- > Edit file : /Users/name/sample/file.php  
+ > Edit sftp file : /Users/name/sample/file.php  
  > Sync to : /var/www/sample/file.php
 
 sample2
- > Edit file : /Users/name/sample/lib/dao/file.php  
+ > Edit ftp file : /Users/name/sample/lib/dao/file.php  
  > Sync to : /var/www/sample/lib/dao/file.php
+
+All parameters
+----
+
+local_base_path:
+
+remote_base_path:
+
+host:
+
+user:
+
+pass:
+
+sftp_command:
+default: "sftp"
+
+login_prompt_regexp:
+default: "Login:\\|Name.*:"
+
+password_prompt_regexp:
+default: "Password:"
+
+sftp_prompt_regexp:
+default: "^s*ftp>"
+
+complete_prompt_regexp:
+default: "complete"
+
+update_command:
+default: "put"
+
+download_command:
+default: "get"
+
+exit_command:
+default: "exit"
+
+timeout_connection:
+default: 5
+
+upload_on_save:
+default: 0
+
+confirm_uploads:
+default: 1
+
+confirm_downloads:
+default: 1
+
 
 Alias
 ----
@@ -68,5 +118,6 @@ Ctrl+u
 Ctrl+d  
     `nnoremap <C-U> <ESC>:call SftpDownload()<CR>`
     
+[bundle]:https://github.com/bundler/bundler/
 [vundle]:https://github.com/gmarik/vundle/
 [pathogen]:https://github.com/tpope/vim-pathogen/
