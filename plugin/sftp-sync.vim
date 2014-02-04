@@ -11,7 +11,7 @@ let s:login_prompt_regexp = "Login:\\|Name.*:"
 let s:password_prompt_regexp = "Password:"
 let s:sftp_prompt_regexp = "^s*ftp>"
 let s:complete_prompt_regexp = "complete"
-let s:update_command = "put"
+let s:upload_command = "put"
 let s:download_command = "get"
 let s:exit_command = "exit"
 let s:timeout_connection = 5
@@ -89,7 +89,7 @@ function! s:makeCmdStr(type)
         return
       endif
     endif
-    let action    = has_key(conf, 'update_command') ? conf['update_command'] : s:update_command
+    let action    = has_key(conf, 'upload_command') ? conf['upload_command'] : s:upload_command
     let action    = printf('%s %s %s', action, conf['local_path'], conf['remote_path'])
   else
     if conf['confirm_downloads']==1
