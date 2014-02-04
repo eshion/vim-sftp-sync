@@ -70,7 +70,7 @@ user:
 
 pass:
 
-sftp_command:
+sftp_command:   
     default: "sftp"
 
 login_prompt_regexp:
