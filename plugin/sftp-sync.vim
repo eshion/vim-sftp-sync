@@ -116,11 +116,10 @@ function! s:makeCmdStr(type)
   if a:type == 1 "upload and no directory
     let arg['No such file or directory'] = 'mkdir '.conf['remote_fold'] .'\r '.action
   endif
-  let arg[prpt_reg] = action
-  let arg[cmpl_reg] = exit_cmd
   let arg['not found'] = exit_cmd
+  let arg[prpt_reg] = action
   let expect = s:makeExpectStr(arg)
-  let cmd = printf('expect -c "set timeout %d; spawn %s %s; while {1} { expect %s timeout {exit;} eof {exit;} }"', timeout, sftp_cmd, conf['host'], expect)
+  let cmd = printf('expect -c "set timeout %d; spawn %s %s; while {1} { expect %s { send \"%s\r\"; exit; } %s timeout {exit;} eof {exit;} }"', timeout, sftp_cmd, conf['host'], cmpl_reg,exit_cmd,expect)
   return cmd
 endfunction
 
