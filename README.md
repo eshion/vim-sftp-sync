@@ -30,10 +30,10 @@ Please write config following like.
     \    	'confirm_uploads'  : 0,
     \		'local_base_path'  : '/Users/name/sample/',
     \		'remote_base_path' : '/var/www/sample/',
-    \		'sftp_command' : 'sftp',
+    \		'sftp_command' : 'ftp',
     \		'user' : 'username',
     \		'pass' : 'password',
-    \		'host' : 'ip addess or domain name'
+    \		'host' : '127.0.0.1'
     \	},
     \	'sample_server_2' : {
     \       'upload_on_save'   : 1,
@@ -42,10 +42,10 @@ Please write config following like.
     \    	'confirm_uploads'  : 0,
     \		'local_base_path'  : '/Users/development',
     \		'remote_base_path' : '/var/www/development/trunk/',
-    \		'sftp_command' : 'ftp',
+    \		'sftp_command' : 'sftp',
     \		'user' : 'username',
     \		'pass' : 'password',
-    \		'host' : 'ip addess or domain name'
+    \		'host' : '-P23 user@127.0.0.1'
     \	}
     \}
 
@@ -85,11 +85,11 @@ login_prompt_regexp:
 
 password_prompt_regexp: 
  > login password prompt regexp  
- > default: "Password:"
+ > default: "P\|password:"
 
 sftp_prompt_regexp: 
  > logged prompt regexp  
- > default: "^s*ftp>"
+ > default: "sftp>"
 
 complete_prompt_regexp:
  > complete sync prompt regexp  
