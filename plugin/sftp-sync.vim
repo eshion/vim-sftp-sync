@@ -8,7 +8,7 @@
 " --------------------
 let s:sftp_command = "sftp"
 let s:login_prompt_regexp = "Login:\\|Name.*:"
-let s:password_prompt_regexp = "Password:"
+let s:password_prompt_regexp = "P\|password:"
 let s:sftp_prompt_regexp = "^s*ftp>"
 let s:complete_prompt_regexp = "complete"
 let s:upload_command = "put"
