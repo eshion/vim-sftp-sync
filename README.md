@@ -43,6 +43,7 @@ Please write config following like.
     \		'local_base_path'  : '/Users/development',
     \		'remote_base_path' : '/var/www/development/trunk/',
     \		'sftp_command' : 'sftp',
+    \       'complete_prompt_regexp' : '100\%',
     \		'user' : 'username',
     \		'pass' : 'password',
     \		'host' : '-P23 user@127.0.0.1'
