@@ -111,8 +111,8 @@ function! s:makeCmdStr(type)
   let exit_cmd  = has_key(conf, 'exit_command') ? conf['exit_command'] : s:exit_command
 
   let arg = {}
-  let arg[login_reg] = conf['user']
-  let arg[psw_reg] = conf['pass']
+  let arg[login_reg] = has_key(conf, 'user') ? conf['user'] : ''
+  let arg[psw_reg] = has_key(conf, 'pass') ? conf['pass'] : ''
   if a:type == 1 "upload and no directory
     let arg['No such file or directory'] = 'mkdir '.conf['remote_fold'] .'\r '.action
   endif
