@@ -1,9 +1,11 @@
+### this plugin is no longer maintained, you can see another auto sync plugin named [vim-sync].
+
+
 vim-sftp-sync
 ============
 
 Automatic sync SFTP,FTP,... for buffers in vim.
 
-this plugin is no longer maintained and you can see another plugin [vim-sync].
 
 Installation
 ----
