@@ -1,8 +1,9 @@
 vim-sftp-sync
 ============
 
-Automatic sync SFTP,FTP,... for buffers in vim
+Automatic sync SFTP,FTP,... for buffers in vim.
 
+this plugin is no longer maintained and you can see another plugin [vim-sync].
 
 Installation
 ----
@@ -133,6 +134,7 @@ Ctrl+u
 Ctrl+d  
     `nnoremap <C-U> <ESC>:call SftpDownload()<CR>`
     
+[vim-sync]:https://github.com/eshion/vim-sync/
 [bundle]:https://github.com/bundler/bundler/
 [vundle]:https://github.com/gmarik/vundle/
 [pathogen]:https://github.com/tpope/vim-pathogen/
