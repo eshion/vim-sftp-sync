@@ -1,4 +1,4 @@
-### this plugin is no longer maintained, you can see another auto sync plugin named [vim-sync].
+### Please note! vim-sftp-sync has been superseded by [vim-sync].
 
 
 vim-sftp-sync
