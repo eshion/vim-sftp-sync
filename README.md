@@ -134,7 +134,7 @@ Ctrl+u
     `nnoremap <C-U> <ESC>:call SftpUpload()<CR>`
     
 Ctrl+d  
-    `nnoremap <C-U> <ESC>:call SftpDownload()<CR>`
+    `nnoremap <C-D> <ESC>:call SftpDownload()<CR>`
     
 [vim-sync]:https://github.com/eshion/vim-sync/
 [bundle]:https://github.com/bundler/bundler/
